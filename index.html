@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Cytonn Weather, cyweather, cytonn weather forecast, weather, cytonn">
+    <meta name="A cytonn Weather Forecast Web Application">
+    <meta name="author" content="Robinson Muriki Githae">
+    <title>CyWeather</title>
+
+    <link rel="stylesheet" type="text/css" href="CSS/all.css">
+
+    <Script src="Javascript/main.js"></Script>
+</head>
+<body onload="realtimeclockDateUpdate()">
+    <h1>CyWeather</h1>
+ <main>
+    
+    <section id="HeaderSection">
+       
+        <div id="logo">
+           <img id="logoimg" src="Images/logo.png" alt="Cytonn Weather Logo"  /> 
+        </div>
+
+        <nav id="topnavmenu">
+            <ul class="menu">
+                <li><a href="#" class="current">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Favorite</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#" class="last">Contact Us</a></li> 
+            </ul>
+        </nav>
+
+<h2 class="today">Today</h2>
+
+<div class="currentdate">
+    <span id="dayOftheweek">DayOftheweek,</span>
+    
+    <span id="date">Date,</span>
+    <span id="month">Month</span>
+    <span id="year">Year.</span>
+   
+</div>
+<div class="currenttime">
+    <span id="hour">00:</span>
+    <span id="minutes">00:</span>
+    <span id="seconds">00</span>
+    <span id="period">Am</span>
+    
+</div>
+    </section>
+    <section id="formInputSecion">
+        <!-- <form action="" method="POST"> -->
+        <fieldset class="fieldset">
+            <legend>Enter place Cordinates here</legend>
+           <input id="latitude" type="text" name="latitude" placeholder="Enter Latitude" required >
+           <input id="longitude" type="text" name="longitude" placeholder="Enter Longitude" required >
+          <button onclick="getUserInput()" id="btnSubmit" type="submit">GET WEATHER UPDATES</button>
+        </fieldset>
+<!-- </form> -->
+    </section>
+
+    <section id="currentWeatherSection">
+        <div class="weatherSummary">
+        <div class="row"><p id="introtext">Current Weather Summary & symbols</p></div>
+        <div class="row">
+        <div class="column">
+           
+                 <img src="Images/thermometer.png"alt="thermometer Icon" width="50px" height="50px">
+                <p id="temp">Temperature</p>
+                <p id="centigrade">0^Centigrade</p>
+            </div>
+            <div class="column">
+                <img src="Images/windicon.jpg"alt="Wind icon" width="50px" height="50px" >
+                <p>Wind Speed</p>
+                <p id="windSpeed">0 mpH</p>
+            </div>
+
+            <div class="column">
+                <img src="Images/droplet.jpg"alt="Humidity Icon" width="50px" height="50px">
+                <p>Relative Humidity</p>
+                <!-- <p id="humidity">0%</p> -->
+                </div>
+                 
+        </div> 
+    </div>
+</section >
+
+<section id="hourlyForcastSection">
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">6 am</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp0">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg0" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover0">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity0">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed0">2 mph</p></div>
+        </div> 
+        
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">7 am</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp1">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg1" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover1">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity1">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed1">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">8 am</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp2">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg2" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover2">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity2">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed2">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">9 am</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp3">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg3" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover3">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity3">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed3">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">10 am</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp4">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg4" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover4">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity4">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed4">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">11 am</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp5">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg5" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover5">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity5">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed5">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">12 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp6">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg6" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover6">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity6">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed6">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">1 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp7">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg7" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover7">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity7">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed7">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">2 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp8">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg8" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover8">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity8">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed8">2 mph</p></div>
+        </div> 
+    
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">3 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp9">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg9" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover9">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity9">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed9">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">4 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp10">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg10" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover10">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity10">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed10">2 mph</p></div>
+        </div> 
+    
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">5 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp11">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg11" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover11">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity11">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed11">2 mph</p></div>
+        </div> 
+
+        <div class="row-hourly">
+            <div class="column-time"><img src="Images/clock.png" alt="clock icon" width="25px" height ="25px">6 pm</div>
+            <div class="column-temperature"><img src="Images/thermometer.png" alt="thermometer pic" width="25px" height="25px"><p id="hrlytemp12">2^C</p></div>
+            <div class="column-cloudcover"><img src="Images/partlycloudy.png" id="cloudcoverimg12" alt="cloud cover image" width="25px" height="25px"><p id="hrlycloudcover12">Cloudy</p></div>
+            <div class="column-humidity"><img src="Images/droplet.jpg"alt="droplet icon" width="25px" height="25px"><p id="hrlyhumidity12">2%</p></div>
+            <div class="column-windspeed"><img src="Images/windicon.jpg" alt="wind icon" width="25px"height="25px"><p id="hrlywindspeed12">2 mph</p></div>
+        </div> 
+   
+    </section>
+  </main>
+
+
+
+  <footer>
+    <p>
+    <ul>
+       <li>About Us</li>
+       <li>Help & Support</li>
+       <li>Privacy Policy</li>
+
+    </ul>
+   </p>
+
+   <p>
+    <h4>Find Us</h4>
+   </p>
+
+   <p class="copyright">
+    <h4>Legal</h4>
+    
+        Copyright &copy; 2022 - <a href="#">Cytonn Weather</a>
+    </p>
+  </footer>
+
+
+</body>
+</html>
